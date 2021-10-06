@@ -14,17 +14,14 @@
 #include <string.h>
 void	*ft_memcpy(void *restrict dst, const void *restrict src, size_t n)
 {
-	int				i;
-	char			*restrict dest;
-	const char		*restrict sorc;
+	char		*restrict dest;
+	const char	*restrict sorc;
 
-	i = 0;
 	dest = dst;
 	sorc = src;
 	while (n > 0)
 	{
-		dest[i] = sorc[i];
-		i++;
+		*dest++ = *sorc++;
 		n--;
 	}
 	return (dst);
@@ -45,7 +42,6 @@ int	main(void)
 	len[7] = '2';
 	len[8] = '3';
 	len[9] = '\0';
-	// len[10] = '\0';
 	ft_memcpy(lenta, len, 3);
 	printf("%s = ", lenta);
 	memcpy(lenta, len, 3);
