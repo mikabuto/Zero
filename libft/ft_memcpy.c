@@ -41,8 +41,14 @@ int	main(void)
 	len[3] = 'd';
 	len[4] = 'e';
 	len[5] = 'f';
-	len[6] = '\0';
-	ft_memcpy(lenta, len, 5);
-	printf("%s", lenta);
+	len[6] = '1';
+	len[7] = '2';
+	len[8] = '3';
+	len[9] = '\0';
+	// len[10] = '\0';
+	ft_memcpy(lenta, len, 3);
+	printf("%s = ", lenta);
+	memcpy(lenta, len, 3);
+	printf("%s;\n", lenta);
 	return (0);
 }
