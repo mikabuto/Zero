@@ -10,8 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
-#include <stdio.h>
+#include "libft.h"
+
 void	*ft_memchr(const void *s, int c, size_t n)
 {
 	const char	*str;
@@ -23,15 +23,5 @@ void	*ft_memchr(const void *s, int c, size_t n)
 			return ((char *)str);
 		str++;
 	}
-	return (0);
-}
-
-int main()
-{
-	char	*str = "wow that's cool";
-	int c = 1;
-
-	printf("%s - orign\n", memchr(str, 'w', c));
-	printf("%s - my work ", ft_memchr(str, 'w', c));
 	return (0);
 }

@@ -6,32 +6,39 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 {
 	int	a;
 	int	b;
+	int	c;
 
 	a = 0;
 	b = 0;
-	if (!little)
-		return ((char *)big);
-	while (len-- && big[a])
+	if (len == 0)
+		return (0);
+	while (big[a] && len--)
 	{
+		c = a;
+		while (big[c] == little[b])
+		{
+			c++;
+			b++;
+			if (little[b] == '\0')
+				return ((char *)&big[a]);
+		}
 		a++;
 		b = 0;
-		while (big[a] == little[b])
-		{
-			b++;
-			a++;
-			if (little[b] == '\0')
-				return ((char *)big);
-		}
 	}
 	return (0);
 }
 
 int main()
 {
+	int	i = 0;
 	const char *big = "wow, are you ok, dude?";
-	const char *little = "wow, are you ok, dude?";
+	const char *little = "w, ";
 
-	printf("%s\n",ft_strnstr(big, little, 1));
-	printf("%s\n",strnstr(big, little, 1));
+	while (i < 6)
+	{
+		printf("%s = ",ft_strnstr(big, little, i));
+		printf("%s\n",strnstr(big, little, i));
+		i++;
+	}
 	return (0);
 }
