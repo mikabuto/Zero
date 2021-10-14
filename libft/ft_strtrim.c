@@ -1,23 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: urycherd <urycherd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/06 09:23:13 by urycherd          #+#    #+#             */
-/*   Updated: 2021/10/14 17:48:57 by urycherd         ###   ########.fr       */
+/*   Created: 2021/10/14 16:30:47 by urycherd          #+#    #+#             */
+/*   Updated: 2021/10/14 16:37:09 by urycherd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlen(const char *s)
+char	*ft_strtrim(char const *s1, char const *set)
 {
-	size_t	i;
+	char	*s;
 
-	i = 0;
-	while (s[i])
-		i++;
-	return (i);
+	if (!(s1) || !(set))
+		return (0);
+	s = (char *)malloc();
+	if (!(s))
+		return (0);
 }
