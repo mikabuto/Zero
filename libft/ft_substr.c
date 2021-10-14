@@ -1,40 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnstr.c                                       :+:      :+:    :+:   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: urycherd <urycherd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/14 13:42:46 by urycherd          #+#    #+#             */
-/*   Updated: 2021/10/14 14:02:29 by urycherd         ###   ########.fr       */
+/*   Created: 2021/10/14 14:43:09 by urycherd          #+#    #+#             */
+/*   Updated: 2021/10/14 16:03:14 by urycherd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
+char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	unsigned int	a;
-	unsigned int	b;
-	unsigned int	c;
+	char	*new;
 
-	a = 0;
-	b = 0;
-	if (ft_strlen(needle) == 0)
-		return ((char *)&haystack[a]);
-	while (haystack[a] && len)
-	{
-		c = a;
-		while (haystack[c] == needle[b] && b < len)
-		{
-			c++;
-			b++;
-			if (needle[b] == '\0')
-				return ((char *)&haystack[a]);
-		}
-		a++;
-		b = 0;
-		len--;
-	}
-	return (0);
+	if (!(s) || (size_t)start >= ft_strlen(s))
+		return (0);
+	len = len + 1;
+	new = (char *)malloc(len);
+	if (!(new))
+		return (0);
+	ft_strlcpy(new, s + start, len);
+	return (new);
 }
