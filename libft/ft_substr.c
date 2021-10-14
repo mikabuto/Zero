@@ -11,17 +11,33 @@
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdio.h>
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
 	char	*new;
 
-	if (!(s) || (size_t)start >= ft_strlen(s))
+	if (!(s))
 		return (0);
-	len = len + 1;
-	new = (char *)malloc(len);
+	len++;
+	new = (char *)malloc(sizeof(char) * len);
 	if (!(new))
 		return (0);
+	new[0] = '\0';
+	if (start >= ft_strlen(s))
+		return (new);
 	ft_strlcpy(new, s + start, len);
 	return (new);
+}
+
+int main()
+{
+	char *s = "01234567";
+	char * kek = ft_substr(s, 7, 1);
+
+	printf("%s", kek);
+
+	free(kek);
+
+	return (0);
 }
