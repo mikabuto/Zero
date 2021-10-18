@@ -6,7 +6,7 @@
 /*   By: urycherd <urycherd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/14 13:50:49 by urycherd          #+#    #+#             */
-/*   Updated: 2021/10/14 13:50:50 by urycherd         ###   ########.fr       */
+/*   Updated: 2021/10/18 15:44:41 by urycherd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,6 @@ char	*ft_strdup(const char *s1)
 	str = (char *)malloc(len);
 	if (!(str))
 		return (0);
-	ft_memcpy(str, s1, len);
+	ft_strlcpy(str, s1, len);
 	return (str);
 }
