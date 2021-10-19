@@ -6,12 +6,11 @@
 /*   By: urycherd <urycherd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/18 14:52:01 by urycherd          #+#    #+#             */
-/*   Updated: 2021/10/19 00:04:15 by urycherd         ###   ########.fr       */
+/*   Updated: 2021/10/19 16:09:36 by urycherd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
 
 int	words_counter(char const *s, char c)
 {
@@ -29,49 +28,41 @@ int	words_counter(char const *s, char c)
 	return (i);
 }
 
-char	**ft_split(char const *s, char c)
+char	**make_strs(char **strs, char *lol, char c)
 {
-	char	**strs;
-	char	*lol;
 	int		start;
 	int		end;
 	int		i;
 
-	if (!s || !c)
-		return (0);
 	start = 0;
 	end = 0;
 	i = 0;
-	lol = ft_strtrim(s, &c);
-	printf("%s", lol);
-	// strs = (char **)malloc(sizeof(char *) * (words_counter(lol, c) + 1));
-	// if (!strs)
-	// 	return (0);
-	// while (lol[end])
-	// {
-	// 	while (lol[end] && lol[end] != c)
-	// 		end++;
-	// 	strs[i] = ft_substr(lol, start, end - start);
-	// 	while (lol[end] && lol[end] == c)
-	// 		end++;
-	// 	start = end;
-	// 	i++;
-	// }
-	// strs[i] = NULL;
+	while (lol[end])
+	{
+		while (lol[end] && lol[end] != c)
+			end++;
+		strs[i] = ft_substr(lol, start, end - start);
+		while (lol[end] && lol[end] == c)
+			end++;
+		start = end;
+		i++;
+	}
+	strs[i] = NULL;
 	free (lol);
 	return (strs);
 }
 
-int main ()
+char	**ft_split(char const *s, char c)
 {
-	char * * tab = ft_split("tripouille", 1);
-	// char *lol;
-	// char	c = 0;
+	char	**strs;
+	char	*lol;
 
-	printf("%s", tab[0]);
-	free(tab);
-	// lol = ft_strtrim("tripouille", &c);
-	// printf("%s", lol);
-	// free(lol);
-	return (0);
+	if (!s)
+		return (0);
+	lol = ft_strtrim(s, &c);
+	strs = (char **)malloc(sizeof(char *) * (words_counter(lol, c) + 1));
+	if (!strs)
+		return (0);
+	strs = make_strs(strs, lol, c);
+	return (strs);
 }

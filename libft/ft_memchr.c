@@ -6,7 +6,7 @@
 /*   By: urycherd <urycherd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/07 17:47:36 by urycherd          #+#    #+#             */
-/*   Updated: 2021/10/18 13:13:58 by urycherd         ###   ########.fr       */
+/*   Updated: 2021/10/19 16:20:20 by urycherd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	*ft_memchr(const void *s, int c, size_t n)
 {
 	while (n--)
 	{
-		if (*(const char	*)s == (char)c)
+		if (*(const char *)s == (char)c)
 			return ((char *)s);
 		s++;
 	}
