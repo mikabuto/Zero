@@ -26,28 +26,25 @@ FLAG = -Wall -Wextra -Werror
 
 RM = rm -f
 
-LIBC = ar rc
-
-LIBR = ranlib
+LIBC = ar rcs
 
 OBJS = ${SRCS:.c=.o}
 
 OBJS_B = $(SRCS_B:.c=.o)
 
-.c.o:
-	${CC} ${FLAG} -c $< -o ${<:.c=.o} -I
+all: ${NAME}
 
 ${NAME}: ${OBJS}
-	${LIBC} ${NAME} ${OBJS}
-	${LIBR} ${NAME}
+	${LIBC} ${NAME} $?
 
-all: ${NAME}
+.c.o:
+	${CC} ${FLAG} -c $< -o ${<:.c=.o}
 
 bonus:
 	make OBJS="$(OBJS_B)" all
 
 clean:
-	${RM} ${OBJS}
+	${RM} ${OBJS}  ${OBJS_B}
 
 fclean: clean
 	${RM} ${NAME}
