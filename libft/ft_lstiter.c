@@ -1,25 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalnum.c                                       :+:      :+:    :+:   */
+/*   ft_lstiter.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: urycherd <urycherd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/06 09:21:36 by urycherd          #+#    #+#             */
-/*   Updated: 2021/10/21 13:14:15 by urycherd         ###   ########.fr       */
+/*   Created: 2021/10/27 16:33:10 by urycherd          #+#    #+#             */
+/*   Updated: 2021/10/27 16:38:10 by urycherd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_isalnum(int c)
+void	ft_lstiter(t_list *lst, void (*f)(void *))
 {
-	if (c > 64 && c < 91)
-		return (1);
-	else if (c > 96 && c < 123)
-		return (2);
-	else if (c > 47 && c < 58)
-		return (3);
-	else
-		return (0);
+	if (lst)
+	{
+		while (lst)
+		{
+			f(lst->content);
+			lst = lst->next;
+		}
+	}
 }

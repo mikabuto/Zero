@@ -6,7 +6,7 @@
 /*   By: urycherd <urycherd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/18 14:52:01 by urycherd          #+#    #+#             */
-/*   Updated: 2021/10/19 16:09:36 by urycherd         ###   ########.fr       */
+/*   Updated: 2021/10/21 15:13:24 by urycherd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,8 @@ char	**ft_split(char const *s, char c)
 	if (!s)
 		return (0);
 	lol = ft_strtrim(s, &c);
+	if (!lol)
+		return (0);
 	strs = (char **)malloc(sizeof(char *) * (words_counter(lol, c) + 1));
 	if (!strs)
 		return (0);

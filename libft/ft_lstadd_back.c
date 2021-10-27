@@ -1,25 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalnum.c                                       :+:      :+:    :+:   */
+/*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: urycherd <urycherd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/06 09:21:36 by urycherd          #+#    #+#             */
-/*   Updated: 2021/10/21 13:14:15 by urycherd         ###   ########.fr       */
+/*   Created: 2021/10/21 18:48:20 by urycherd          #+#    #+#             */
+/*   Updated: 2021/10/27 18:01:42 by urycherd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_isalnum(int c)
+void	ft_lstadd_back(t_list **lst, t_list *new)
 {
-	if (c > 64 && c < 91)
-		return (1);
-	else if (c > 96 && c < 123)
-		return (2);
-	else if (c > 47 && c < 58)
-		return (3);
-	else
-		return (0);
+	t_list	*adress;
+
+	if (!new)
+		return ;
+	if (!*lst)
+	{
+		*lst = new;
+		return ;
+	}
+	adress = *lst;
+	while (adress->next)
+		adress = adress->next;
+	adress->next = new;
 }

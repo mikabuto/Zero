@@ -1,25 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalnum.c                                       :+:      :+:    :+:   */
+/*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: urycherd <urycherd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/06 09:21:36 by urycherd          #+#    #+#             */
-/*   Updated: 2021/10/21 13:14:15 by urycherd         ###   ########.fr       */
+/*   Created: 2021/10/27 16:49:12 by urycherd          #+#    #+#             */
+/*   Updated: 2021/10/27 18:44:44 by urycherd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_isalnum(int c)
+t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
-	if (c > 64 && c < 91)
-		return (1);
-	else if (c > 96 && c < 123)
-		return (2);
-	else if (c > 47 && c < 58)
-		return (3);
-	else
+	t_list	*nlist;
+
+	if (!lst)
 		return (0);
+	nlist = ft_lstnew(f(lst->content));
+	if (!nlist)
+	{
+		ft_lstclear(&nlist, del);
+		return (0);
+	}
+	lst = lst->next;
+	while (lst)
+	{
+		ft_lstadd_back(&nlist, ft_lstnew(f(lst->content)));
+		lst = lst->next;
+	}
+	return (nlist);
 }

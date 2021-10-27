@@ -1,25 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalnum.c                                       :+:      :+:    :+:   */
+/*   ft_lstdelone.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: urycherd <urycherd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/06 09:21:36 by urycherd          #+#    #+#             */
-/*   Updated: 2021/10/21 13:14:15 by urycherd         ###   ########.fr       */
+/*   Created: 2021/10/21 18:59:28 by urycherd          #+#    #+#             */
+/*   Updated: 2021/10/27 15:49:08 by urycherd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_isalnum(int c)
+void	ft_lstdelone(t_list *lst, void (*del)(void*))
 {
-	if (c > 64 && c < 91)
-		return (1);
-	else if (c > 96 && c < 123)
-		return (2);
-	else if (c > 47 && c < 58)
-		return (3);
-	else
-		return (0);
+	if (lst)
+	{
+		del(lst->content);
+		free(lst);
+	}
 }
