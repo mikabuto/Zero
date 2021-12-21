@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*   get_next_line_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: urycherd <urycherd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/14 18:08:14 by urycherd          #+#    #+#             */
-/*   Updated: 2021/12/21 18:50:42 by urycherd         ###   ########.fr       */
+/*   Updated: 2021/12/21 19:09:08 by urycherd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "get_next_line_bonus.h"
 
 static void	rem_fill(int fd, char *buffer, char **rem)
 {
@@ -71,7 +71,7 @@ static char	*get_line(char **rem, char **line)
 
 char	*get_next_line(int fd)
 {
-	static char	*rem;
+	static char	*rem[OPEN_MAX];
 	char		*buffer;
 	char		*line;
 
@@ -81,6 +81,6 @@ char	*get_next_line(int fd)
 		free (buffer);
 		return (NULL);
 	}
-	rem_fill(fd, buffer, &rem);
-	return (get_line(&rem, &line));
+	rem_fill(fd, buffer, &rem[fd]);
+	return (get_line(&rem[fd], &line));
 }
