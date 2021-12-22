@@ -6,7 +6,7 @@
 /*   By: urycherd <urycherd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/16 14:22:31 by urycherd          #+#    #+#             */
-/*   Updated: 2021/12/21 18:50:43 by urycherd         ###   ########.fr       */
+/*   Updated: 2021/12/22 12:51:41 by urycherd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define GET_NEXT_LINE_BONUS_H
 
 # ifndef BUFFER_SIZE
-#  define BUFFER_SIZE
+#  define BUFFER_SIZE 
 # endif
 
 # include <stdlib.h>
