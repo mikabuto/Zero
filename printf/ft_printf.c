@@ -6,7 +6,7 @@
 /*   By: urycherd <urycherd@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/04 15:17:11 by urycherd          #+#    #+#             */
-/*   Updated: 2022/01/06 19:09:42 by urycherd         ###   ########.fr       */
+/*   Updated: 2022/01/06 19:28:15 by urycherd         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,6 @@ int	ft_printf(const char *fmt, ...)
 
 int main ()
 {
-	ft_printf("%X", 123);
+	ft_printf("%X", 42);
 	return (0);
 }
